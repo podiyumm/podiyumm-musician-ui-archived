@@ -13,18 +13,18 @@
     {{ song.text }}
     </div>-->
 
-    <Chord chords="song.chords" />
+    <!-- <Chord chords="song.chords" /> -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import ChordSheetJS from "chordsheetjs";
-import Chord from "./Chord.vue";
+// import Chord from "./Chord.vue";
 
 export default {
   components: {
-    Chord,
+    // Chord,
   },
 
   data() {
@@ -57,7 +57,7 @@ export default {
         console.log(chordProText);
         const parser = new ChordSheetJS.ChordProParser();
         const song = parser.parse(chordProText);
-        const formatter = new ChordSheetJS.HtmlTableFormatter();
+        const formatter = new ChordSheetJS.HtmlDivFormatter();
         this.song.textAsHtml = formatter.format(song);
         console.log(this.song.textAsHtml);
 
@@ -93,38 +93,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}*/
-/* a {
-  color: #42b983;
-  font-weight: bold;
-} */
 .rendered >>> .chord {
   font-weight: bold;
-  text-align: left;
+  padding-right: 3px;
 }
-
-.rendered >>> .lyrics {
-  text-align: left;
+.rendered >>> .lyrics {  text-align: left;
+  padding-right: 3px;
 }
-/*
-.rendered >>> td {
-   padding: 0;
-   margin: 0;
-} */
-
-/*
-.rendered >>> table, th, td {
-    border: 1px solid black;
-    background-color: yellow;  }
-} */
 </style>
