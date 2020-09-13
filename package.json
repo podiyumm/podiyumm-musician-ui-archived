@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "chord-transposer": "^2.3.1",
     "chordsheetjs": "^3.0.0",
     "core-js": "^3.6.5",
     "vexchords": "^1.2.0",
