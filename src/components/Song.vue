@@ -2,18 +2,7 @@
   <div>
     <h1>{{ song.title }}</h1>
     <div v-if="song.author">{{ song.author }}</div>
-
-    <!-- <span v-for="line in song.text" :key="line">
-      {{ line }}
-      <br/>
-    </span>-->
-
     <div class="rendered" v-html="song.textAsHtml"></div>
-    <!-- <div>
-    {{ song.text }}
-    </div>-->
-
-    <!-- <Chord chords="song.chords" /> -->
   </div>
 </template>
 
@@ -71,33 +60,27 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
-
-    // async / await version (created() becomes async created())
-    //
-    // try {
-    //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
-    //   this.posts = response.data
-    // } catch (e) {
-    //   this.errors.push(e)
-    // }
   },
 };
 
-// export default {
-//   name: 'HelloWorld',
-//   props: {
-//     msg: String
-//   }
-// }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.rendered >>> .chord:after {
+  /* empty <div class="chord"> causes corrupt formatting for line start => text moved up */
+   content: " ";
+}
+
 .rendered >>> .chord {
   font-weight: bold;
-  padding-right: 3px;
+  /* empty <div class="chord"> causes corrupt formatting for line start => text moved up */
+  white-space: pre-wrap;
 }
-.rendered >>> .lyrics {  text-align: left;
-  padding-right: 3px;
+
+.rendered >>> .lyrics {
+  /* otherwise no spaces between words */
+  white-space: pre-wrap;
 }
 </style>
