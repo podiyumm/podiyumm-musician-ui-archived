@@ -76,11 +76,11 @@ export default {
 .rendered >>> .chord {
   font-weight: bold;
   /* empty <div class="chord"> causes corrupt formatting for line start => text moved up */
-  white-space: pre-wrap;
+  white-space: pre;
 }
 
 .rendered >>> .lyrics {
   /* otherwise no spaces between words */
-  white-space: pre-wrap;
+  white-space: pre;
 }
 </style>
