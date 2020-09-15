@@ -9,7 +9,6 @@
 <script>
 import axios from "axios";
 import ChordSheetJS from "chordsheetjs";
-// import Chord from "./Chord.vue";
 
 export default {
   components: {

@@ -81,8 +81,16 @@
           align="start"
         >
         <v-col outlined>
+            <Chords />
+        </v-col>
+        </v-row>
+        <v-row
+          justify="center"
+          align="start"
+        >
+        <v-col outlined>
             <Song />
-          </v-col>
+        </v-col>
         </v-row>
       </v-container>
     </v-main>
@@ -90,8 +98,8 @@
 </template>
 
 <script>
-  import Song from './components/Song.vue'
-
+  import Chords from './Chords.vue'
+  import Song from './Song.vue'
 
   export default {
     props: {
@@ -117,6 +125,7 @@
       ],
     }),
     components: {
+      Chords,
       Song
     }
   }
