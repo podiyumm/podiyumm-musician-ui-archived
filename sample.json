@@ -3,8 +3,16 @@
         "author": "",
         "title": "Jak jeleň dychtí za vodou",
         "text": [
+            "{sov: Verse 1}",
             "[e]Jak [C]jeleň [D]dychtí za vo[e]dou, ja, [C]Bože, [D]túžim za teb[e]ou. 3x",
-            "Jak [C]jeleň [D]dychtí za vo[e]dou, ja, [C]Bože, [e]túžim za teb[D]ou."
+            "Jak [C]jeleň [D]dychtí za vo[e]dou, ja, [C]Bože, [e]túžim za teb[D]ou.",
+            "{eov}",
+            "{soc}",
+            "Zošli {chod e}dážď, zošli [C]dážď, dosť [G]bolo su[D]cha",
+            "Zošli {chod e}dážď, zošli [C]dážď, dosť [G]Svätého Du[D]cha",
+            "Zošli {chod e}dážď, zošli [C]dážď, dosť [G]nové let[D]nice",
+            "Zošli {chod e}dážď, zošli [C]dážď, dosť [G]rozjasaj srd[D]ce",
+            "{eoc}"
         ]
     }
 ]
