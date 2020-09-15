@@ -8,7 +8,7 @@
 
 <script>
 import axios from "axios";
-import ChordSheetJS from "chordsheetjs";
+import ChordPro from '../services/ChordPro'
 
 export default {
   components: {
@@ -42,11 +42,8 @@ export default {
 
         // render lyrics with chords
         const chordProText = this.song.text.join("\n");
-        console.log(chordProText);
-        const parser = new ChordSheetJS.ChordProParser();
-        const song = parser.parse(chordProText);
-        const formatter = new ChordSheetJS.HtmlDivFormatter();
-        this.song.textAsHtml = formatter.format(song);
+        // console.log(chordProText);
+        this.song.textAsHtml = ChordPro.renderChordProText(chordProText);
         console.log(this.song.textAsHtml);
 
         // gather chords
