@@ -208,7 +208,6 @@ const chordDefs = [
 
 export default {
   getChordDefinition(chord) {
-    console.log(chord);
     return chordDefs.find((chordDef) => chord == chordDef.name);
   },
 };
