@@ -12,7 +12,6 @@ import ChordPro from '../services/ChordPro'
 
 export default {
   components: {
-    // Chord,
   },
 
   data() {
@@ -43,7 +42,7 @@ export default {
         // render lyrics with chords
         const chordProText = this.song.text.join("\n");
         // console.log(chordProText);
-        this.song.textAsHtml = ChordPro.renderChordProText(chordProText);
+        this.song.textAsHtml = ChordPro.renderChordProAsHtml(chordProText);
         console.log(this.song.textAsHtml);
 
         // gather chords

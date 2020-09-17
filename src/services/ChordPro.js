@@ -2,7 +2,7 @@ import ChordSheetJS from 'chordsheetjs';
 
 export default {
 
-  renderChordProText (chordProSongText) {
+  renderChordProAsHtml (chordProSongText) {
     console.log(chordProSongText);
     const parser = new ChordSheetJS.ChordProParser();
     const song = parser.parse(chordProSongText);
