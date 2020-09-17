@@ -83,7 +83,11 @@
       SongList,
       Chords,
       Song
-    }
+    },
+    created() {
+      this.$store.dispatch("song/fetchAll")
+    },
+
   }
 </script>
 

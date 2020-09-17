@@ -17,25 +17,40 @@
 
 <script>
 import * as vexchords from 'vexchords';
+import { mapGetters } from "vuex"
 import GuitarChords from '../services/GuitarChords'
 
 export default {
-  data() {
-    return {
-      song: [],
-      chords: ["C", "D", "G"],
-      errors: [],
-    };
+  components: {},
+
+  computed: {
+    ...mapGetters("song", {
+      chords: "activeChords",
+    }),
   },
 
-  // Fetches posts when the component is created.
-  mounted() {
-    this.chords.forEach(chord => {
-      console.log(GuitarChords.getChordDefinition(chord));
-      vexchords.draw('#chord_'+chord, GuitarChords.getChordDefinition(chord) );
+  created() {
+    // subscribe to active song changed event
+    // see: https://dev.to/viniciuskneves/watch-for-vuex-state-changes-2mgj
+    this.unsubscribe = this.$store.subscribe((mutation) => {
+      if (mutation.type === 'song/setActive') {
+        // draw only once html element to write svg to has been renderred
+        // see: https://forum.vuejs.org/t/wait-for-element-to-be-rendered/22542/4
+        this.$nextTick(function () {
+          console.log(this.$store.getters['song/activeChords']);
+          this.$store.getters['song/activeChords'].forEach(chord => {
+            console.log(chord)
+            vexchords.draw('#chord_'+chord, GuitarChords.getChordDefinition(chord) )
+          });
+        })
+      }
     });
   },
-};
+  beforeDestroy() {
+    this.unsubscribe();
+  },
+
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -15,14 +15,17 @@ const state = () => ({
       },
 
     activeText: (state, getters) => {
+      if (!getters.activeSong.text) return ""
       return getters.activeSong.text.join("\n");
     },
 
     activeChords: (state, getters) => {
-      return getters.activeText.match(/\[(.*?)\]/g).map(function (elem) {
+      if (!getters.activeText) return ""
+      const chords =  getters.activeText.match(/\[(.*?)\]/g).map(function (elem) {
         elem = elem.replace(/[[\]]/g,'');
         return elem;
       });
+      return [...new Set(chords)]
     },
 
   }

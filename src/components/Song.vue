@@ -23,9 +23,6 @@ export default {
     }),
   },
 
-  created() {
-    this.$store.dispatch("song/fetchAll")
-  },
 
   filters: {
     renderText: function (text) {
