@@ -21,8 +21,6 @@ import { mapGetters } from "vuex"
 import GuitarChords from '../services/GuitarChords'
 
 export default {
-  components: {},
-
   computed: {
     ...mapGetters("song", {
       chords: "activeChords",
@@ -46,6 +44,7 @@ export default {
       }
     });
   },
+
   beforeDestroy() {
     this.unsubscribe();
   },

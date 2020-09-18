@@ -1,80 +1,30 @@
 <template>
-    <v-list
-        dense
-        class="grey lighten-4"
-      >
-
-        <template v-for="(item, i) in items">
-          <v-row
-            v-if="item.heading"
-            :key="i"
-            align="center"
-          >
-            <v-col cols="6">
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-col>
-            <v-col
-              cols="6"
-              class="text-right"
-            >
-              <v-btn
-                small
-                text
-              >edit</v-btn>
-            </v-col>
-          </v-row>
-          <v-divider
-            v-else-if="item.divider"
-            :key="i"
-            dark
-            class="my-4"
-          ></v-divider>
+  <v-row align="center">
+      <v-list>
           <v-list-item
-            v-else
+            v-for="(song, i) in songs"
             :key="i"
-            link
+            @click="activate(song)"
           >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title class="grey--text">
-                {{ item.text }}
-              </v-list-item-title>
+              <v-list-item-title v-html="song.title"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </template>
       </v-list>
+  </v-row>
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 
-  export default {
-    props: {
-      source: String,
-    },
-    data: () => ({
-      drawer: null,
-      items: [
-        { icon: 'lightbulb_outline', text: 'Notes' },
-        { icon: 'touch_app', text: 'Reminders' },
-        { divider: true },
-        { heading: 'Labels' },
-        { icon: 'add', text: 'Create new label' },
-        { divider: true },
-        { icon: 'archive', text: 'Archive' },
-        { icon: 'delete', text: 'Trash' },
-        { divider: true },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Trash' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'phonelink', text: 'App downloads' },
-        { icon: 'keyboard', text: 'Keyboard shortcuts' },
-      ],
-    })
-  }
+export default {
+  computed: mapState({
+    songs: (state) => state.song.songs,
+  }),
+  methods: mapActions('song', [
+    'activate'
+  ]),
+};
 </script>
 
 <style>

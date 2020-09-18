@@ -24,7 +24,7 @@
       clipped
       color="grey lighten-4"
     >
-      <SongList />
+      <!-- <SongList /> -->
     </v-navigation-drawer>
 
     <v-main>
@@ -43,7 +43,12 @@
           align="start"
         >
         <v-col outlined>
+          <div v-if="activeSong.title">
             <Song />
+          </div>
+          <div v-else>
+            <SongList />
+          </div>
         </v-col>
         </v-row>
       </v-container>
@@ -55,29 +60,14 @@
   import SongList from './SongList.vue'
   import Chords from './Chords.vue'
   import Song from './Song.vue'
+  import { mapState } from "vuex";
 
   export default {
-    props: {
-      source: String,
-    },
+    computed: mapState({
+      activeSong: (state) => state.song.active,
+    }),
     data: () => ({
-      drawer: null,
-      items: [
-        { icon: 'lightbulb_outline', text: 'Notes' },
-        { icon: 'touch_app', text: 'Reminders' },
-        { divider: true },
-        { heading: 'Labels' },
-        { icon: 'add', text: 'Create new label' },
-        { divider: true },
-        { icon: 'archive', text: 'Archive' },
-        { icon: 'delete', text: 'Trash' },
-        { divider: true },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Trash' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'phonelink', text: 'App downloads' },
-        { icon: 'keyboard', text: 'Keyboard shortcuts' },
-      ],
+      drawer: null
     }),
     components: {
       SongList,
@@ -86,8 +76,8 @@
     },
     created() {
       this.$store.dispatch("song/fetchAll")
+      console.log(this.activeSong)
     },
-
   }
 </script>
 

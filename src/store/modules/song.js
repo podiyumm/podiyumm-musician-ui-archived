@@ -35,19 +35,22 @@ const state = () => ({
     fetchAll ({ commit }) {
         songApi.getSongs(songs => {
         commit('setSongs', songs)
-        commit('setActive', songs[0])
       })
     },
+
+    activate ({ commit }, song) {
+      commit('setActive', { id: song.id })
+    }
   }
 
   // mutations
   const mutations = {
     setSongs (state, songs) {
-      state.all = songs;
+      state.songs = songs;
     },
 
-    setActive (state, active) {
-      state.active = active;
+    setActive (state, id ) {
+      state.active = state.songs.find(item => item.id === id.id)
     }
   }
 
