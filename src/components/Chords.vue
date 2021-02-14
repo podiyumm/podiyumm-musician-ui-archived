@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-container grid-list-xl>
+    <v-container grid-list>
       <v-layout wrap>
         <v-flex xs2 v-for="chord in chords" :key="chord">
-          <v-card outlined min-width="120">
+          <v-card outlined width="110px">
             <div v-bind:id="'chord_'+chord"></div>
             <v-card-title primary-title>
               <div>{{ chord }}</div>
