@@ -35,7 +35,15 @@
           align="start"
         >
         <v-col outlined>
-            <Chords />
+            <ChordsGuitar />
+        </v-col>
+        </v-row>
+        <v-row
+          justify="center"
+          align="start"
+        >
+        <v-col outlined>
+            <ChordsPiano />
         </v-col>
         </v-row>
         <v-row
@@ -58,7 +66,8 @@
 
 <script>
   import SongList from './SongList.vue'
-  import Chords from './Chords.vue'
+  import ChordsGuitar from './ChordsGuitar.vue'
+  import ChordsPiano from './ChordsPiano.vue'
   import Song from './Song.vue'
   import { mapState } from "vuex";
 
@@ -71,7 +80,8 @@
     }),
     components: {
       SongList,
-      Chords,
+      ChordsGuitar,
+      ChordsPiano,
       Song
     },
     created() {

@@ -77,7 +77,7 @@ const chordDefs = [
     barres: [],
   },
   {
-    name: "e",
+    name: "Emi",
     chord: [
       [1, 0],
       [2, 0],
