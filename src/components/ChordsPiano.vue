@@ -37,19 +37,15 @@ export default {
         this.$nextTick(function () {
           console.log(this.$store.getters['song/activeChords']);
           this.$store.getters['song/activeChords'].forEach(chord => {
-            const tones = ChordNotes.notes(chord);
-            // const piano = new Instrument(document.getElementById('piano_chord_'+chord));
-            // const piano = new Instrument(this.$refs['piano_chord_'+chord]);
+            const notes = ChordNotes.notes(chord);
             const piano = new Instrument(document.getElementById('piano_chord_'+chord), {
                 startOctave: 4,
-                endOctave: 5,
+                endOctave: 6,
                 keyPressStyle: 'vivid'
               }
             );
             piano.create();
-            for (var i = 0; i < tones.length; i++) {
-              piano.keyDown(tones[i]+'4');
-            }
+            notes.forEach(note => piano.keyDown(note.toString()));
           });
         })
       }

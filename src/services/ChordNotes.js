@@ -1,16 +1,13 @@
-import { chordParserFactory } from 'chord-symbol';
-
+import teoria from 'teoria';
 
 export default {
 
-    notes (chord) {
+  notes (chord) {
       if (!chord) return ''
 
-      const parseChord = chordParserFactory();
-      const parsedChord = parseChord(chord);
-      if (!parsedChord) return []
+      const parsedChord = teoria.chord(chord);
+      console.log("Chord " + chord + ": " + parsedChord.notes());
 
-      console.log("Chord " + chord + ": " + parsedChord.normalized.notes);
-      return parsedChord.normalized.notes;
+      return parsedChord.notes();
     }
   }
