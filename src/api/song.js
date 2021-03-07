@@ -47,6 +47,30 @@ const _songs = [
       "Was [D]blind, but [A7]now I [D]see.",
     ],
   },
+
+{
+  id: "4",
+  title: "Chcem vojsť do Pánových brán",
+  artist: "",
+  key: "C",
+  text: [
+  '[C]Chcem vojsť do Pánových [F]brán,', 'srdce [C]chcem mať plné [Ami]chvál,', 'vstúpiť [C]do Pánových [F]siení s osla[G]vou.', 'Toto [C]je deň, ktorý [F]Pán pre mňa [C]daro[Ami]val,', 'chcem [Dmi]tešiť sa, môj [G]Pán mi šťastie [C]dal.', '{eov}', '{soc}', ' /: ON [C]PRAVÉ ŠŤASTIE [F]DAL, ', 'SOM [C]VĎAČNÝ, PLNÝ [Ami]CHVÁL.', 'CHCEM [Dmi]TEŠIŤ SA, ', 'MôJ [G]PÁN MI ŠŤASTIE [C]DAL.[G]:/', '{eoc}'
+]
+},
+{
+  id: "5",
+  title: "Požehnané meno má Pán",
+  artist: "",
+  key: "D",
+  text: ['{sov}', '[D] [(G,fis)] /: Požehnané meno má [(A,Hmi)]Pán :/ 3x', 'Najvyšší. [A] ', '{eov}', '{soc}', 'Viem, že meno Pána, je mô[D]j úkryt[G, D, hmi], ', 'v boji sa v ňom môžem skry[emi]ť, v bezpečí žiť[A, D].', '{eoc}', '{sov}', 'Oslávené meno má Pán...', '{eov}', '{sov}', 'Svätý, svätý, svätý je Pán...', '{eov}', '{sov}', 'Ježiš, toto meno má Pán...', '{eov}']
+},
+{
+  id: "ž",
+  title: "Ty si Pánom, Ty si Kráľom",
+  artist: "",
+  key: "D",
+  text: ['{sov}', '[D]Ty si Pánom, [A]Ty si Kráľom,', '[H]Ó Kráľom je [G]Boh. ', '{eov}', '{soc}', '/: P[D]ozdvihnime svoje srdcia,', ' [A]pozdvihnime svoje dlane, [Hmi]postavme sa ', 'pred tvár Pána a [G]velebme Ho.:/  ', '{eoc}']
+}
 //   {
 //     id: "4",
 //     title: "Holubí dům",
