@@ -38,6 +38,19 @@ const chordDefs = [
     barres: [],
   },
   {
+    name: "F",
+    chord: [
+      [1, 1, 1],
+      [2, 3, 3],
+      [3, 3, 4],
+      [4, 2, 2],
+      [5, 1, 1],
+      [6, 1, 1],
+    ],
+    position: 0,
+    barres: [],
+  },
+  {
     name: "G",
     chord: [
       [1, 3, 4],
@@ -64,7 +77,7 @@ const chordDefs = [
     barres: [],
   },
   {
-    name: "d",
+    name: "Dmi",
     chord: [
       [1, 1, 1],
       [2, 3, 3],
@@ -90,7 +103,7 @@ const chordDefs = [
     barres: [],
   },
   {
-    name: "a",
+    name: "Ami",
     chord: [
       [1, 0],
       [2, 1, 1],
