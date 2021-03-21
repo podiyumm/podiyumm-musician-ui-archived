@@ -1,15 +1,13 @@
 <template>
   <div>
-    <v-container grid-list>
-      <v-layout wrap>
-        <v-flex xs2 v-for="chord in chords" :key="chord">
-          <v-card outlined>
-            <div v-bind:id="'piano_chord_'+chord" :ref="'piano_chord_'+chord"></div>
-            <v-card-title primary-title>
-              <div>{{ chord }}</div>
-            </v-card-title>
-          </v-card>
-        </v-flex>
+    <v-container>
+      <v-layout row wrap>
+            <div v-for="chord in chords" :key="chord" class="spaces">
+            <v-layout column>
+              <div v-bind:id="'piano_chord_'+chord" :ref="'piano_chord_'+chord" class="chord_piano"></div>
+              <div class="chord_name">{{chord}}</div>
+            </v-layout>
+            </div>
       </v-layout>
     </v-container>
   </div>
@@ -69,4 +67,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.chord_piano {
+   height: 50px;
+  width: 120px;
+}
+.spaces {
+  padding-left: 10px
+}
+.chord_name {
+  text-align: center;
+  ;
+}
 </style>

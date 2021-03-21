@@ -1,15 +1,13 @@
 <template>
   <div>
-    <v-container grid-list>
-      <v-layout wrap>
-        <v-flex xs2 v-for="chord in chords" :key="chord">
-          <v-card outlined width="110px">
-            <div v-bind:id="'chord_'+chord"></div>
-            <v-card-title primary-title>
-              <div>{{ chord }}</div>
-            </v-card-title>
-          </v-card>
-        </v-flex>
+    <v-container>
+      <v-layout row wrap>
+            <div v-for="chord in chords" :key="chord">
+            <v-layout column class="guitar_chord">
+              <div class="chord_diag" v-bind:id="'chord_'+chord" ></div>
+              <div class="chord_name">{{chord}}</div>
+            </v-layout>
+            </div>
       </v-layout>
     </v-container>
   </div>
@@ -44,7 +42,14 @@ export default {
         // see: https://forum.vuejs.org/t/wait-for-element-to-be-rendered/22542/4
         this.$nextTick(function () {
           this.$store.getters['song/' + ACTIVE_CHORDS].forEach(chord => {
-            vexchords.draw('#chord_'+chord, GuitarChords.getChordDefinition(chord) )
+            vexchords.draw(
+              '#chord_'+chord,
+              GuitarChords.getChordDefinition(chord),
+              {
+                width: 70,
+                height: 80
+              }
+            )
           });
         })
       }
@@ -60,4 +65,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* .guitar_chord {
+  border:1px solid black;
+} */
+.chord_name {
+  text-align: center;
+}
+/* .chord_diag {
+  border:1px solid black;
+} */
 </style>
