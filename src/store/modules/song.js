@@ -40,7 +40,18 @@ const state = () => ({
       const chords =  getters.activeText.match(/\[(.*?)\]/g).map(function (elem) {
         elem = elem.replace(/[[\]]/g,'');
         return elem;
+      })
+      // filter empty elems,
+      // see: https://stackoverflow.com/questions/55685037/how-to-remove-empty-array-values-from-an-array/55685110
+      .filter(item => item)
+      // should be normalized on input: d -> Dmi
+      // .map(function (elem) {
+      //   if (elem.length == 1 && elem == elem.toLowerCase()) {
+      //     return elem.toUpperCase() + "mi"
+      //   }
+      //   return elem;
       });
+
       return [...new Set(chords)]
     },
 

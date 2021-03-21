@@ -9,7 +9,7 @@ export default {
     const song = parser.parse(chordProSongText)
     const formatter = new ChordSheetJS.HtmlTableFormatter()
     const textAsHtml = formatter.format(song)
-    console.log(textAsHtml)
+    // console.log(textAsHtml)
     return textAsHtml
   }
 }
