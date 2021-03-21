@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import song from './modules/song'
+import song from '@/store/modules/song'
 
 Vue.use(Vuex)
 

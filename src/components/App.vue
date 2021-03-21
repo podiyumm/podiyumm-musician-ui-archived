@@ -71,6 +71,10 @@
   import Song from './Song.vue'
   import { mapState } from "vuex";
 
+  import {
+  FETCH_ALL
+} from "@/store/actions.type";
+
   export default {
     computed: mapState({
       activeSong: (state) => state.song.active,
@@ -85,8 +89,8 @@
       Song
     },
     created() {
-      this.$store.dispatch("song/fetchAll")
-      console.log(this.activeSong)
+      this.$store.dispatch('song/' + FETCH_ALL)
+      // console.log(this.activeSong)
     },
   }
 </script>

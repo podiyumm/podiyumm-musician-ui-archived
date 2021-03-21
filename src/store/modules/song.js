@@ -1,4 +1,20 @@
-import songApi from '../../api/song'
+// import songApi from '../../api/song'
+import SongApiService from '@/api/song'
+
+import {
+  FETCH_ALL
+} from "@/store/actions.type";
+
+import {
+  ACTIVE_CHORDS,
+  ACTIVE_SONG,
+  ACTIVE_TEXT
+} from '@/store/getters.type';
+
+import {
+  SET_ACTIVE,
+  SET_SONGS
+} from '@/store/mutations.type';
 
 // inspiration: https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/modules/cart.js
 
@@ -10,16 +26,16 @@ const state = () => ({
 
   // getters
   const getters = {
-    activeSong: (state) => {
+    [ACTIVE_SONG](state) {
         return state.active;
       },
 
-    activeText: (state, getters) => {
-      if (!getters.activeSong.text) return ""
+    [ACTIVE_TEXT](state, getters) {
+    if (!getters.activeSong.text) return ""
       return getters.activeSong.text.join("\n");
     },
 
-    activeChords: (state, getters) => {
+    [ACTIVE_CHORDS](state, getters) {
       if (!getters.activeText) return ""
       const chords =  getters.activeText.match(/\[(.*?)\]/g).map(function (elem) {
         elem = elem.replace(/[[\]]/g,'');
@@ -32,10 +48,9 @@ const state = () => ({
 
   // actions
   const actions = {
-    fetchAll ({ commit }) {
-        songApi.getSongs(songs => {
-        commit('setSongs', songs)
-      })
+    async [FETCH_ALL](context) {
+      const { data } = await SongApiService.query();
+      return context.commit(SET_SONGS, data);
     },
 
     activate ({ commit }, song) {
@@ -45,11 +60,10 @@ const state = () => ({
 
   // mutations
   const mutations = {
-    setSongs (state, songs) {
+    [SET_SONGS](state, songs) {
       state.songs = songs;
     },
-
-    setActive (state, id ) {
+    [SET_ACTIVE](state, id) {
       state.active = state.songs.find(item => item.id === id.id)
     }
   }

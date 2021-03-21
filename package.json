@@ -16,6 +16,7 @@
     "teoria": "^2.5.0",
     "vexchords": "^1.2.0",
     "vue": "^2.6.11",
+    "vue-axios": "^3.2.4",
     "vue-router": "^3.4.3",
     "vuetify": "^2.2.11",
     "vuex": "^3.5.1"
