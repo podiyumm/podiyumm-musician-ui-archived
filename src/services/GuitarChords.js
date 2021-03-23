@@ -1,4 +1,5 @@
 const chordDefs = [
+  // dur
   {
     name: "C",
     chord: [
@@ -7,6 +8,7 @@ const chordDefs = [
       [3, 0],
       [4, 2, 2],
       [5, 3, 3],
+      [6, "x"],
     ],
     position: 0,
     barres: [],
@@ -77,6 +79,20 @@ const chordDefs = [
     barres: [],
   },
   {
+    name: "H",
+    chord: [
+      [1, 2, 1],
+      [2, 4, 3],
+      [3, 4, 3],
+      [4, 4, 3],
+      [5, 2, 1],
+      [6, "x"],
+    ],
+    position: 0,
+    barres: [],
+  },
+  // mi
+  {
     name: "Dmi",
     chord: [
       [1, 1, 1],
@@ -103,6 +119,19 @@ const chordDefs = [
     barres: [],
   },
   {
+    name: "Fmi",
+    chord: [
+      [1, 1, 1],
+      [2, 3, 3],
+      [3, 3, 4],
+      [4, 1, 1],
+      [5, 1, 1],
+      [6, 1, 1],
+    ],
+    position: 0,
+    barres: [],
+  },
+  {
     name: "Ami",
     chord: [
       [1, 0],
@@ -115,6 +144,21 @@ const chordDefs = [
     position: 0,
     barres: [],
   },
+  {
+    name: "Hmi",
+    chord: [
+      [1, 2, 1],
+      [2, 3, 2],
+      [3, 4, 4],
+      [4, 4, 3],
+      [5, 2, 1],
+      [6, "x"],
+    ],
+    position: 0,
+    barres: [],
+  },
+
+  // 7
   {
     name: "C7",
     chord: [
@@ -155,6 +199,19 @@ const chordDefs = [
     barres: [],
   },
   {
+    name: "F7",
+    chord: [
+      [1, 0, "x"],
+      [2, 0, "x"],
+      [3, 3, 4],
+      [4, 2, 3],
+      [5, 1, 2],
+      [6, 0],
+    ],
+    position: 0,
+    barres: [],
+  },
+  {
     name: "G7",
     chord: [
       [1, 1, 1],
@@ -180,6 +237,9 @@ const chordDefs = [
     position: 0,
     barres: [],
   },
+
+  // m7
+
   {
     name: "Dm7",
     chord: [
@@ -205,6 +265,19 @@ const chordDefs = [
     barres: [],
   },
   {
+    name: "Fm7",
+    chord: [
+      [1, 1, 1],
+      [2, 3, 3],
+      [3, 1, 1],
+      [4, 2, 2],
+      [5, 1, 1],
+      [6, 1, 1],
+    ],
+    position: 0,
+    barres: [],
+  },
+  {
     name: "Am7",
     chord: [
       [1, 0],
@@ -217,6 +290,51 @@ const chordDefs = [
     position: 0,
     barres: [],
   },
+
+  // sus2
+  {
+    name: "Esus2",
+    chord: [
+      [1, 2, 1],
+      [2, 5, 4],
+      [3, 4, 3],
+      [4, 2, 1],
+      [5, 2, 1],
+      [6, 0, "x"],
+    ],
+    position: 0,
+    barres: [],
+  },
+
+  // sus4
+  {
+    name: "Esus4",
+    chord: [
+      [1, 0],
+      [2, 0],
+      [3, 4, 4],
+      [4, 2, 3],
+      [5, 2, 2],
+      [6, 0, "x"],
+    ],
+    position: 0,
+    barres: [],
+  },
+
+  // 5
+  {
+    name: "Esus4",
+    chord: [
+      [1, 0],
+      [2, 2, 1],
+      [3, 2, 2],
+      [4, 0, "x"],
+      [5, 0, "x"],
+      [6, 0, "x"],
+    ],
+    position: 0,
+    barres: [],
+  }
 ];
 
 export default {
