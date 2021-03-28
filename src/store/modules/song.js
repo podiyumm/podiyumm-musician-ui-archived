@@ -1,11 +1,13 @@
-// import songApi from '../../api/song'
 import SongApiService from '@/api/song'
+import router from '@/router'
 
 import {
+  FETCH,
   FETCH_ALL
 } from "@/store/actions.type";
 
 import {
+  ID,
   ACTIVE_CHORDS,
   ACTIVE_SONG,
   ACTIVE_TEXT
@@ -26,9 +28,13 @@ const state = () => ({
 
   // getters
   const getters = {
+    [ID]() {
+      return router.currentRoute.params.id
+    },
+
     [ACTIVE_SONG](state) {
         return state.active;
-      },
+    },
 
     [ACTIVE_TEXT](state, getters) {
     if (!getters.activeSong.text) return ""
@@ -44,13 +50,6 @@ const state = () => ({
       // filter empty elems,
       // see: https://stackoverflow.com/questions/55685037/how-to-remove-empty-array-values-from-an-array/55685110
       .filter(item => item);
-      // should be normalized on input: d -> Dmi
-      // .map(function (elem) {
-      //   if (elem.length == 1 && elem == elem.toLowerCase()) {
-      //     return elem.toUpperCase() + "mi"
-      //   }
-      //   return elem;
-      // });
 
       return [...new Set(chords)]
     },
@@ -59,13 +58,25 @@ const state = () => ({
 
   // actions
   const actions = {
-    async [FETCH_ALL](context) {
-      const { data } = await SongApiService.query();
-      return context.commit(SET_SONGS, data);
+
+    [FETCH_ALL]({ commit }) {
+      return SongApiService.query()
+        .then(({ data }) => {
+          commit(SET_SONGS, data);
+        })
+        .catch(error => {
+          throw new Error(error);
+        });
     },
 
-    activate ({ commit }, song) {
-      commit('setActive', { id: song.id })
+    [FETCH]({ commit, getters }) {
+      return SongApiService.get(getters.id)
+        .then(({ data }) => {
+          commit(SET_ACTIVE, data);
+        })
+        .catch(error => {
+          throw new Error(error);
+        });
     }
   }
 
@@ -74,8 +85,8 @@ const state = () => ({
     [SET_SONGS](state, songs) {
       state.songs = songs;
     },
-    [SET_ACTIVE](state, id) {
-      state.active = state.songs.find(item => item.id === id.id)
+    [SET_ACTIVE](state, song) {
+      state.active = song
     }
   }
 

@@ -1,29 +1,34 @@
 <template>
-  <v-row align="center">
+  <v-container>
+    <v-row align="center">
       <v-list>
-          <v-list-item
-            v-for="(song, i) in songs"
-            :key="i"
-            @click="activate(song)"
-          >
+        <v-list-item
+          v-for="song in songs"
+          :key="song.id"
+        >
+        <router-link :to="{ name: 'song', params: { id: song.id }}">
             <v-list-item-content>
               <v-list-item-title v-html="song.title"></v-list-item-title>
             </v-list-item-content>
-          </v-list-item>
+          </router-link>
+        </v-list-item>
       </v-list>
-  </v-row>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
+import { FETCH_ALL } from "@/store/actions.type";
 
 export default {
   computed: mapState({
     songs: (state) => state.song.songs,
   }),
-  methods: mapActions('song', [
-    'activate'
-  ]),
+
+  created() {
+    this.$store.dispatch("song/" + FETCH_ALL);
+  }
 };
 </script>
 

@@ -24,13 +24,14 @@
       clipped
       color="grey lighten-4"
     >
-      <!-- <SongList /> -->
     </v-navigation-drawer>
 
     <v-main>
+
       <v-container
       >
-        <v-row
+      <router-view></router-view>
+        <!-- <v-row
           justify="center"
           align="start"
         >
@@ -58,40 +59,40 @@
             <SongList />
           </div>
         </v-col>
-        </v-row>
+        </v-row> -->
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-  import SongList from './SongList.vue'
-  import ChordsGuitar from './ChordsGuitar.vue'
-  import ChordsPiano from './ChordsPiano.vue'
-  import Song from './Song.vue'
-  import { mapState } from "vuex";
+//   import SongList from './SongList.vue'
+//   import ChordsGuitar from './ChordsGuitar.vue'
+//   import ChordsPiano from './ChordsPiano.vue'
+//   import Song from './Song.vue'
+  // import { mapState } from "vuex";
 
-  import {
-  FETCH_ALL
-} from "@/store/actions.type";
+//   import {
+//   FETCH_ALL
+// } from "@/store/actions.type";
 
   export default {
-    computed: mapState({
-      activeSong: (state) => state.song.active,
-    }),
+//     computed: mapState({
+//       activeSong: (state) => state.song.active,
+//     }),
     data: () => ({
       drawer: null
-    }),
-    components: {
-      SongList,
-      ChordsGuitar,
-      ChordsPiano,
-      Song
-    },
-    created() {
-      this.$store.dispatch('song/' + FETCH_ALL)
-      // console.log(this.activeSong)
-    },
+    })
+//     components: {
+//       SongList,
+//       ChordsGuitar,
+//       ChordsPiano,
+//       Song
+//     },
+  //   created() {
+  //     this.$store.dispatch('song/' + FETCH_ALL)
+  //     // console.log(this.activeSong)
+  //   },
   }
 </script>
 
