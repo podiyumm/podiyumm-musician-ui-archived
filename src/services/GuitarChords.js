@@ -239,6 +239,19 @@ const chordDefs = [
     position: 0,
     barres: [],
   },
+  {
+    name: "H7",
+    chord: [
+      [1, 2, 4],
+      [2, 0],
+      [3, 2, 3],
+      [4, 1, 1],
+      [5, 2, 2],
+      [6, "x"],
+    ],
+    position: 0,
+    barres: [],
+  },
 
   // m7
 
@@ -336,7 +349,7 @@ const chordDefs = [
     ],
     position: 0,
     barres: [],
-  },
+  }
 ];
 
 export default {
