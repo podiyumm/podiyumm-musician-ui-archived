@@ -4,7 +4,7 @@
       <v-layout row wrap>
         <div v-for="chord in chords" :key="chord">
           <v-layout column class="guitar_chord">
-            <div class="chord_diag" v-bind:id="'chord_' + chord"></div>
+            <div class="chord_diag" v-bind:id="'chord_' + chord | sharpReplace "></div>
             <div class="chord_name">{{ chord }}</div>
           </v-layout>
         </div>
@@ -29,6 +29,12 @@ export default {
     }),
   },
 
+  filters: {
+    sharpReplace: function (chord) {
+      return chord.replace(/[#]/g, "is");
+    },
+  },
+
   created() {
     // subscribe to active song changed event
     // see: https://dev.to/viniciuskneves/watch-for-vuex-state-changes-2mgj
@@ -39,7 +45,7 @@ export default {
         this.$nextTick(function () {
           this.$store.getters["song/" + ACTIVE_CHORDS].forEach((chord) => {
             vexchords.draw(
-              "#chord_" + chord,
+              "#chord_" + chord.replace(/[#]/g, "is"),
               GuitarChords.getChordDefinition(chord),
               {
                 width: 70,

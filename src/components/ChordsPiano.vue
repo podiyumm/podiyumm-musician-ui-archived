@@ -6,7 +6,6 @@
           <v-layout column>
             <div
               v-bind:id="'piano_chord_' + chord"
-              :ref="'piano_chord_' + chord"
               class="chord_piano"
             ></div>
             <div class="chord_name">{{ chord }}</div>
