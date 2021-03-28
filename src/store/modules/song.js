@@ -4,7 +4,6 @@ import router from "@/router";
 import { FETCH, FETCH_ALL } from "@/store/actions.type";
 
 import {
-  ID,
   ACTIVE_CHORDS,
   ACTIVE_SONG,
   ACTIVE_TEXT,
@@ -22,9 +21,9 @@ const state = () => ({
 
 // getters
 const getters = {
-  [ID]() {
-    return router.currentRoute.params.id;
-  },
+  // [ID]() {
+  //   return router.currentRoute.params.id;
+  // },
 
   [ACTIVE_SONG](state) {
     return state.active;
@@ -63,8 +62,8 @@ const actions = {
       });
   },
 
-  [FETCH]({ commit, getters }) {
-    return SongApiService.get(getters.id)
+  [FETCH]({ commit }) {
+    return SongApiService.get(router.currentRoute.params.id)
       .then(({ data }) => {
         commit(SET_ACTIVE, data);
       })
