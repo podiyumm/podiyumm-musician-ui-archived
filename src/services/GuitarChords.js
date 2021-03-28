@@ -1,3 +1,5 @@
+// source: https://music-zone.eu/wp-content/uploads/2018/01/acoustic-guitar-chord-chart-fingers_893536.png
+
 const chordDefs = [
   // dur
   {
@@ -334,7 +336,7 @@ const chordDefs = [
     ],
     position: 0,
     barres: [],
-  }
+  },
 ];
 
 export default {

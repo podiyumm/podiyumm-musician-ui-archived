@@ -2,11 +2,8 @@
   <v-container>
     <v-row align="center">
       <v-list>
-        <v-list-item
-          v-for="song in songs"
-          :key="song.id"
-        >
-        <router-link :to="{ name: 'song', params: { id: song.id }}">
+        <v-list-item v-for="song in songs" :key="song.id">
+          <router-link :to="{ name: 'song', params: { id: song.id } }">
             <v-list-item-content>
               <v-list-item-title v-html="song.title"></v-list-item-title>
             </v-list-item-content>
@@ -28,7 +25,7 @@ export default {
 
   created() {
     this.$store.dispatch("song/" + FETCH_ALL);
-  }
+  },
 };
 </script>
 
