@@ -66,7 +66,8 @@ export default {
 .chord_name {
   text-align: center;
 }
-/* .chord_diag {
-  border:1px solid black;
-} */
+.chord_diag {
+  width: 70px;
+  height: 80px;
+}
 </style>
