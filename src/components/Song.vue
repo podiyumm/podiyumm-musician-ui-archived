@@ -60,15 +60,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.rendered >>> .chord:after {
-  /* empty <div class="chord"> causes corrupt formatting for line start => text moved up */
-  content: " ";
-}
 
 .rendered >>> .chord {
   font-weight: bold;
-  /* empty <div class="chord"> causes corrupt formatting for line start => text moved up */
-  white-space: pre;
 }
 
 .rendered >>> .lyrics {
