@@ -3,10 +3,10 @@ name: ms-covid-data-loader CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 defaults:
   run:
