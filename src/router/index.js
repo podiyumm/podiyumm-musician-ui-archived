@@ -17,6 +17,14 @@ export default new VueRouter({
       name: "songList",
       component: SongList,
     },
+    // {
+    //   path: '/:catchAll(.*)',
+    //   component: NotFoundComponent,
+    //   name: 'NotFound'
+    // }
   ],
+  base: process.env.NODE_ENV === 'production'
+      ? '/musician-ui/' // prod
+      : '/', // dev
   mode: "history",
 });
