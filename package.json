@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "chord-transposer": "^3.0.0",
-    "chordsheetjs": "^4.1.0",
+    "chordsheetjs": "^4.7.1",
     "core-js": "^3.11.2",
     "piano-chart": "^1.5.0",
     "teoria": "^2.5.0",
